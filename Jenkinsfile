@@ -1,7 +1,15 @@
 node {
-stage('terraform init') {
+    
+stage('Checkout') {
+      checkout scm
+    }
+stage('terraform install') {
     install_terraform()
-  }    
+  }   
+    
+stage('terraform init') {
+    terraform_init()
+  }  
     
 
 }
