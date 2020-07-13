@@ -5,18 +5,24 @@ stage('Checkout') {
     }
 stage('terraform configure') {
     install_terraform()
-    terraform_init()
+    ansiColor('xterm') {
+        terraform_init()
+    }
   }   
     
 stage('terraform plan') {
-    terraform_plan()
-    input(id: "Deploy", message: "Approve Changes?", ok: 'Deploy')
+     ansiColor('xterm') {
+        terraform_plan()
+     }
+      ansiColor('xterm') {
+        input(id: "Deploy", message: "Approve Changes?", ok: 'Deploy')
+      }
   }  
     
 stage('terraform apply') {
-    terraform_plan()
-    input(id: "Deploy", message: "Approve Changes?", ok: 'Deploy')
-    terraform_apply()
+     ansiColor('xterm') {
+        terraform_apply()
+     }
   }  
     
 
@@ -53,7 +59,7 @@ def terraform_plan() {
 def terraform_apply() {
     script = '''
         set +x -e
-         ${WORKSPACE}/terraform apply -auto-approve -var-file vars/${env}t/terraform.tfvars
+         ${WORKSPACE}/terraform apply -auto-approve -var-file vars/${env}/terraform.tfvars
         '''
     sh(script: script, returnStatus: true)
 }
