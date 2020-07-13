@@ -1,0 +1,3 @@
+bucket = "ec2practiceeee"
+region = "ap-south-1"
+key = "ec2/prod/terraform.tfstate"
