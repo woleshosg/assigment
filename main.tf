@@ -22,5 +22,5 @@ module "ec2" {
     instance_type = var.instance_type
     ec2_key = var.ec2_key
     subnet_id = var.subnet_id
-    security_group_ids = var.security_group_ids
+    vpc_security_group_ids = var.vpc_security_group_ids
 }
