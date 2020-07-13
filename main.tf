@@ -13,7 +13,7 @@ provider "aws" {
   region  = var.aws_region
 }
 
-
+backend "s3" {}
 module "ec2" {
     source      = "./modules/ec2"
     ami_id = var.ami_id
