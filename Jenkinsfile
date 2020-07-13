@@ -3,12 +3,20 @@ node {
 stage('Checkout') {
       checkout scm
     }
-stage('terraform install') {
+stage('terraform configure') {
     install_terraform()
+    terraform_init()
   }   
     
-stage('terraform init') {
-    terraform_init()
+stage('terraform plan') {
+    terraform_plan()
+    input(id: "Deploy", message: "Approve Changes?", ok: 'Deploy')
+  }  
+    
+stage('terraform apply') {
+    terraform_plan()
+    input(id: "Deploy", message: "Approve Changes?", ok: 'Deploy')
+    terraform_apply()
   }  
     
 
