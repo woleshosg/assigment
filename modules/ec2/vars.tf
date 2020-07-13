@@ -1,7 +1,3 @@
-variable "account_role_arn" {
-
-}
-
 variable "aws_region" {
 }
 
