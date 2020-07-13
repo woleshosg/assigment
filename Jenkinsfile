@@ -27,7 +27,7 @@ def install_terraform() {
 }
 
 def terraform_init() {
-    sript = '''
+    script = '''
         set +x -e
          ${WORKSPACE}/terraform init -backend-config vars/${env}/s3.tfbackend
         '''
@@ -35,7 +35,7 @@ def terraform_init() {
 }
 
 def terraform_plan() {
-    sript = '''
+    script = '''
         set +x -e
          ${WORKSPACE}/terraform plan -var-file vars/${env}/terraform.tfvars -out tfplan
         '''
@@ -43,7 +43,7 @@ def terraform_plan() {
 }
 
 def terraform_apply() {
-    sript = '''
+    script = '''
         set +x -e
          ${WORKSPACE}/terraform apply -auto-approve -var-file vars/${env}t/terraform.tfvars
         '''
