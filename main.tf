@@ -1,11 +1,18 @@
+# provider "aws" {
+#   region  = var.aws_region
+#   version = "~> 2.0"
+#   assume_role {
+#     role_arn     = var.account_role_arn
+#     session_name = "ec2"
+#   }
+# }
+
+
 provider "aws" {
-  region  = var.aws_region
   version = "~> 2.0"
-  assume_role {
-    role_arn     = var.account_role_arn
-    session_name = "ec2"
-  }
+  region  = var.aws_region
 }
+
 
 module "ec2" {
     source      = "./modules/ec2"
