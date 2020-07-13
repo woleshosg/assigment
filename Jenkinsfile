@@ -29,7 +29,7 @@ def install_terraform() {
 def terraform_init() {
     sript = '''
         set +x -e
-         ${WORKSPACE}/terraform init -backend-config vars/${env}/backend.tf
+         ${WORKSPACE}/terraform init -backend-config vars/${env}/s3.tfbackend
         '''
     sh(script: script, returnStatus: true)
 }
